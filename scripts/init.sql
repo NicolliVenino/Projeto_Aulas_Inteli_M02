@@ -33,3 +33,12 @@ VALUES
   ('Rose Thompson', 'rose.thompson@example.com'),
   ('Samuel Perez', 'samuel.perez@example.com'),
   ('Tara Scott', 'tara.scott@example.com');
+
+  CREATE TABLE IF NOT EXISTS curso (
+  id SERIAL PRIMARY KEY,
+  nome TEXT NOT NULL
+);
+
+ALTER TABLE aluno
+ADD COLUMN IF NOT EXISTS curso_id INTEGER,
+ADD CONSTRAINT fk_curso FOREIGN KEY (curso_id) REFERENCES curso(id) ON DELETE SET NULL;
