@@ -14,7 +14,14 @@ db.connect()
     app.use(express.json());
 
     const userRoutes = require('./routes/userRoutes');
+    const alunoRoutes = require('./routes/alunos');
+    const cursoRoutes = require('./routes/cursos');
+    const professorRoutes = require('./routes/professores');
+
     app.use('/users', userRoutes);
+    app.use('/alunos', alunoRoutes);
+    app.use('/cursos', cursoRoutes);
+    app.use('/professores', professorRoutes);
 
     const frontendRoutes = require('./routes/frontRoutes');
     app.use('/', frontendRoutes);
